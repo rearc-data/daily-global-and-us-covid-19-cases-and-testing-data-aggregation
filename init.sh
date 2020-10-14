@@ -48,7 +48,7 @@ while [[ ${#PRODUCT_NAME} -gt 72 ]]; do
 done
 
 #creating a pre-processing zip package, these commands may need to be adjusted depending on folder structure and dependencies
-(cp -rf /Users/masinazarian/.pyenv/versions/lambda/lib/python3.8/site-packages/* pre-processing/pre-processing-code)
+# (cp -rf /Users/masinazarian/.pyenv/versions/lambda/lib/python3.8/site-packages/* pre-processing/pre-processing-code)
 (cd pre-processing/pre-processing-code && zip -r pre-processing-code.zip . -x "*.dist-info/*" -x "bin/*" -x "**/__pycache__/*")
 
 #upload pre-preprocessing.zip to s3
@@ -81,7 +81,7 @@ fi
 echo "invoking the pre-processing lambda function to create first dataset revision"
 LAMBDA_FUNCTION_NAME="source-for-${DATASET_NAME}"
 # AWS CLI version 2 changes require explicitly declairing `--cli-binary-format raw-in-base64-out` for the format of the `--payload`
-LAMBDA_FUNCTION_STATUS_CODE=$(aws lambda invoke --function-name "$LAMBDA_FUNCTION_NAME" --invocation-type "RequestResponse" --payload '{ "test": "event" }' response.json --cli-binary-format raw-in-base64-out --zip-file fileb://function.zip --region "$REGION" --query 'StatusCode' --output text$PROFILE)
+LAMBDA_FUNCTION_STATUS_CODE=$(aws lambda invoke --function-name "$LAMBDA_FUNCTION_NAME" --invocation-type "RequestResponse" --payload '{ "test": "event" }' response.json --cli-binary-format raw-in-base64-out --region "$REGION" --query 'StatusCode' --output text$PROFILE)
 
 #grabbing dataset revision status
 echo "grabbing dataset revision status"
