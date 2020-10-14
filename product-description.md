@@ -16,9 +16,9 @@ There are four data files included with this product in CSV format. README files
 The main fields in the data files include `Date`, `Country / State / County Name`, `FIPS Code / ISO Codes`, `Latitude / Longitude`, `Population`, `number of cases`, `Number of deaths`, and `Number of tests`.
 
 The following data files are also used to map country, U.S. state, and U.s. county names to corresponding FIPS / ISO codes and name abbreviations:
-- [country_codes.csv](https://github.com/rearc-data/daily-global-and-us-covid-19-cases-and-testing-data-aggregation/blob/master/country_codes.csv)
-- [state_codes.csv](https://github.com/rearc-data/daily-global-and-us-covid-19-cases-and-testing-data-aggregation/blob/master/state_codes.csv)
-- [county_codes.csv](https://github.com/rearc-data/daily-global-and-us-covid-19-cases-and-testing-data-aggregation/blob/master/county_codes.csv)
+- [country_codes.csv](https://github.com/rearc-data/daily-global-and-us-covid-19-cases-and-testing-data-aggregation/blob/master/pre-processing/pre-processing-code/country_codes.csv)
+- [state_codes.csv](https://github.com/rearc-data/daily-global-and-us-covid-19-cases-and-testing-data-aggregation/blob/master/pre-processing/pre-processing-code/state_codes.csv)
+- [county_codes.csv](https://github.com/rearc-data/daily-global-and-us-covid-19-cases-and-testing-data-aggregation/blob/master/pre-processing/pre-processing-code/county_codes.csv)
 
 ## More Information
 - Data Sources:

@@ -48,9 +48,9 @@ def source_dataset():
     if not os.path.exists(data_dir):
         os.mkdir(data_dir)
 
-    county_codes = pd.read_csv('/data/county_codes.csv')
-    state_codes = pd.read_csv('/data/state_codes.csv')
-    country_codes = pd.read_csv('/data/country_codes.csv')
+    county_codes = pd.read_csv('county_codes.csv')
+    state_codes = pd.read_csv('state_codes.csv')
+    country_codes = pd.read_csv('country_codes.csv')
 
     # state data file
     covid_us_states = dataapi_states.copy()
