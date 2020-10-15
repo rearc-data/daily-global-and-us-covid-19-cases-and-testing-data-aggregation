@@ -4,7 +4,7 @@
 
 ### Daily Global & U.S. COVID-19 Cases & Testing Data (Aggregated Data)
 
-You can subscribe to the AWS Data Exchange product utilizing the automation featured in this repository by visiting [https://aws.amazon.com/marketplace/pp/prodview-](https://aws.amazon.com/marketplace/pp/prodview-).
+You can subscribe to the AWS Data Exchange product utilizing the automation featured in this repository by visiting [https://aws.amazon.com/marketplace/pp/prodview-q64gmcdz7zfns](https://aws.amazon.com/marketplace/pp/prodview-q64gmcdz7zfns).
 
 ## Main Overview
 This product provide daily aggregated data related to Covid-19 in different geographical units (countries, US states, US counties). This product can be used to analyze and measure the historical spread, daily trends, and relative impact of Covid-19 in different countries as well as within the U.S.
