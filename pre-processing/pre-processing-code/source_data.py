@@ -74,6 +74,10 @@ def source_dataset():
                                 how='left', 
                                 on=['date', 'state_name'])
 
+    cols = covid_us_states_columns 
+    for col in cols:
+        if col not in covid_us_states.columns:
+            covid_us_states[col] = None
     covid_us_states = covid_us_states[covid_us_states_columns]
 
     covid_us_states.to_csv(os.path.join(data_dir, 'covid_19_us_states.csv'), index=False)
@@ -99,6 +103,11 @@ def source_dataset():
     covid_us_counties['area_name'] = None
     covid_us_counties_columns = ['state_fips', 'state_name', 'county_fips', 'county_name', 'area_name',
         'lat', 'long', 'date', 'cases', 'deaths']
+
+    cols = covid_us_counties_columns 
+    for col in cols:
+        if col not in covid_us_counties.columns:
+            covid_us_counties[col] = None
     covid_us_counties = covid_us_counties[covid_us_counties_columns]
 
     covid_us_counties.to_csv(os.path.join(data_dir, 'covid_19_us_counties.csv'), index=False)
@@ -117,6 +126,10 @@ def source_dataset():
     covid_global_countries = covid_global_countries.set_index("country_name").join(
                                 country_codes.set_index("country_name"), how="left").reset_index()
 
+    cols = covid_global_countries_columns 
+    for col in cols:
+        if col not in covid_global_countries.columns:
+            covid_global_countries[col] = None
     covid_global_countries = covid_global_countries[covid_global_countries_columns]
 
     covid_global_countries.to_csv(os.path.join(data_dir, 'covid_19_global_countries.csv'), index=False)
