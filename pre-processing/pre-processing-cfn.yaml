@@ -40,6 +40,7 @@ Resources:
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
         - arn:aws:iam::796406704065:policy/AWSDataExchangeService
         - arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess
+        - arn:aws:iam::aws:policy/AmazonSNSFullAccess
       Path: /
 
 # Create a Lambda function that will update daily revisions to AWS Data Exchange dataset
@@ -107,6 +108,22 @@ Resources:
           - "ScheduledRule"
           - "Arn"
 
+  version:
+    Type: AWS::Lambda::Version
+    Properties:
+      FunctionName: !Ref "LambdaFunction"
+
+  asyncconfig:
+    Type: AWS::Lambda::EventInvokeConfig
+    Properties:
+      DestinationConfig:
+          OnFailure:
+            Destination: arn:aws:sns:us-east-1:796406704065:adx-lambda-error
+      FunctionName: !Ref "LambdaFunction"
+      MaximumEventAgeInSeconds: 300
+      MaximumRetryAttempts: 2
+      Qualifier: $LATEST
+      
 Outputs:
   LambdaRoleARN:
     Description: Role for Lambda execution.

@@ -44,6 +44,19 @@ def source_dataset():
     dataapi_us = pd.read_csv(dataapi["us-summary"])
     dataapi_states = pd.read_csv(dataapi["states"])
 
+    print('ny_us')
+    print(ny_us.columns)
+    print('ny_states')
+    print(ny_states.columns)
+    print('ny_counties')
+    print(ny_counties.columns)
+    print('owid_data')
+    print(owid_data.columns)
+    print('dataapi_us')
+    print(dataapi_us.columns)
+    print('dataapi_states')
+    print(dataapi_states.columns)
+
     data_dir = '/tmp'
     if not os.path.exists(data_dir):
         os.mkdir(data_dir)
@@ -199,9 +212,12 @@ def source_dataset():
                         how='left', 
                         on=['date'])
 
-    us_cases = us_cases[['date', 'tests', 'patients_icu', 'patients_hosp', 'cases', 
-       'tests_negative', 'patients_vent', 'tests_positive', 
-       'recovered']].copy()
+    cols = ['date', 'tests', 'patients_icu', 'patients_hosp', 'cases', 
+       'tests_negative', 'patients_vent', 'tests_positive', 'recovered'] 
+    for col in cols:
+        if col not in us_cases.columns:
+            us_cases[col] = None
+    us_cases = us_cases[cols].copy()
 
     us = us.merge(us_cases, how='left', on='date')
 
@@ -287,5 +303,5 @@ def source_dataset():
     # if it is empty, lambda_handler will not republish
     return asset_list
 
-# if __name__ == '__main__':
-#     source_dataset()
+if __name__ == '__main__':
+    source_dataset()
