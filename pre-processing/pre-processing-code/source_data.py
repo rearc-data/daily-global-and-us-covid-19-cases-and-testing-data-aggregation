@@ -12,7 +12,7 @@ nytimes = {
 }
 
 owid = {
-    "data": "https://covid.ourworldindata.org/data/owid-covid-data.csv"
+    "data": "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv"
 }
 
 dataapi = {
